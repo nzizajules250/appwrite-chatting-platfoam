@@ -1,20 +1,35 @@
-@import "tailwindcss";
+/* Existing styles in app.css */
 
-summary::-webkit-details-marker {
-  display: none
+.chat-container {
+  display: grid;
+  grid-template-columns: 250px 350px 1fr 300px; /* Example widths: Left Sidebar, Middle Section, Main Chat, Right Sidebar */
+  grid-template-rows: 1fr; /* Single row for the whole layout */
+  height: 100vh; /* Make the container take the full viewport height */
 }
 
-.checker-background::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-image: linear-gradient(#e6e6e690 1px, transparent 1px),
-    linear-gradient(90deg, #e6e6e690 1px, transparent 1px);
-  background-size: 3.7em 3.7em;
-  mask-image: radial-gradient(ellipse at 50% 40%, black 0%, transparent 55%);
-  z-index: -1;
-  background-position-x: center;
+.left-sidebar {
+  grid-column: 1; /* Position in the first column */
+  background-color: #f0f0f0; /* Example background color */
+  padding: 20px;
+}
+
+.middle-section {
+  grid-column: 2; /* Position in the second column */
+  background-color: #e0e0e0; /* Example background color */
+  padding: 20px;
+  overflow-y: auto; /* Enable scrolling if chat list exceeds height */
+}
+
+.main-chat-window {
+  grid-column: 3; /* Position in the third column */
+  background-color: #ffffff; /* Example background color */
+  padding: 20px;
+  display: flex;
+  flex-direction: column; /* Arrange messages vertically */
+}
+
+.right-sidebar {
+  grid-column: 4; /* Position in the fourth column */
+  background-color: #f0f0f0; /* Example background color */
+  padding: 20px;
 }
